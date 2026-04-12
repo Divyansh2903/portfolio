@@ -59,7 +59,7 @@ export function Experience() {
               <h3 className="font-mono text-[15px] font-medium lowercase text-foreground">
                 {exp.company}
               </h3>
-              <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-neutral-400">{exp.date}</p>
+              <p className="font-mono text-[12px] uppercase tracking-widest text-neutral-400">{exp.date}</p>
             </motion.div>
             <motion.p
               variants={fadeUpItem}
