@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { fadeUpItem, sectionViewport, staggerContainer } from '../lib/motion';
 import { SectionHeader } from './SectionHeader';
 
 const projects = [
@@ -33,19 +35,37 @@ export function Projects() {
       </h2>
       <div className="space-y-10">
         {projects.map((project) => (
-          <article key={project.title} className="max-w-2xl">
-            <h3 className="font-mono text-[15px] font-medium lowercase text-foreground">
+          <motion.article
+            key={project.title}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            className="max-w-2xl"
+          >
+            <motion.h3
+              variants={fadeUpItem}
+              className="font-mono text-[15px] font-medium lowercase text-foreground"
+            >
               {project.title}
-            </h3>
-            <p className="mt-1 font-mono text-[12px] uppercase tracking-[0.08em] text-neutral-400">
+            </motion.h3>
+            <motion.p
+              variants={fadeUpItem}
+              className="mt-1 font-mono text-[12px] uppercase tracking-[0.08em] text-neutral-400"
+            >
               {project.tech}
-            </p>
-            <ul className="mt-4 space-y-2 font-mono text-[14px] leading-[1.6] text-neutral-600 lowercase">
+            </motion.p>
+            <motion.ul
+              variants={staggerContainer}
+              className="mt-4 space-y-2 font-mono text-[14px] leading-[1.6] text-neutral-600 lowercase"
+            >
               {project.impact.map((point) => (
-                <li key={point}>— {point}</li>
+                <motion.li key={point} variants={fadeUpItem}>
+                  — {point}
+                </motion.li>
               ))}
-            </ul>
-          </article>
+            </motion.ul>
+          </motion.article>
         ))}
       </div>
     </section>

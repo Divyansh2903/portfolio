@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { fadeUpItem, sectionViewport, staggerContainer } from '../lib/motion';
 import { SectionHeader } from './SectionHeader';
 
 const experiences = [
@@ -42,22 +44,40 @@ export function Experience() {
       </h2>
       <div className="space-y-10">
         {experiences.map((exp) => (
-          <article key={exp.company} className="max-w-2xl">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+          <motion.article
+            key={exp.company}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            className="max-w-2xl"
+          >
+            <motion.div
+              variants={fadeUpItem}
+              className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between"
+            >
               <h3 className="font-mono text-[15px] font-medium lowercase text-foreground">
                 {exp.company}
               </h3>
               <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-neutral-400">{exp.date}</p>
-            </div>
-            <p className="mt-1 font-mono text-[13px] lowercase text-neutral-500">
+            </motion.div>
+            <motion.p
+              variants={fadeUpItem}
+              className="mt-1 font-mono text-[13px] lowercase text-neutral-500"
+            >
               {exp.role} · {exp.location}
-            </p>
-            <ul className="mt-4 space-y-2 font-mono text-[14px] leading-[1.6] text-neutral-600 lowercase">
+            </motion.p>
+            <motion.ul
+              variants={staggerContainer}
+              className="mt-4 space-y-2 font-mono text-[14px] leading-[1.6] text-neutral-600 lowercase"
+            >
               {exp.impact.map((point) => (
-                <li key={point}>— {point}</li>
+                <motion.li key={point} variants={fadeUpItem}>
+                  — {point}
+                </motion.li>
               ))}
-            </ul>
-          </article>
+            </motion.ul>
+          </motion.article>
         ))}
       </div>
     </section>

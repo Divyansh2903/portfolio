@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import type { ComponentType, SVGProps } from 'react';
 import CppIcon from '../assets/icons/cpp.svg?react';
 import DartIcon from '../assets/icons/dart.svg?react';
@@ -14,6 +15,7 @@ import PythonIcon from '../assets/icons/python.svg?react';
 import ReactIcon from '../assets/icons/react.svg?react';
 import ReactNativeIcon from '../assets/icons/react-native.svg?react';
 import TsIcon from '../assets/icons/ts.svg?react';
+import { fadeUpItem, hoverSpring, sectionViewport, staggerContainer } from '../lib/motion';
 import { SectionHeader } from './SectionHeader';
 
 type SvgrIcon = ComponentType<SVGProps<SVGSVGElement>>;
@@ -48,10 +50,14 @@ function PillItem({ label, Icon }: Pill) {
   const Svg = Icon;
   return (
     <li>
-      <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-700">
+      <motion.span
+        whileHover={{ y: -1 }}
+        transition={hoverSpring}
+        className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-700"
+      >
         <Svg className="h-3.5 w-3.5 shrink-0" aria-hidden />
         {label}
-      </span>
+      </motion.span>
     </li>
   );
 }
@@ -63,8 +69,14 @@ export function TechStack() {
       <h2 id="stack-heading" className="sr-only">
         Stack
       </h2>
-      <div className="space-y-6">
-        <div>
+      <motion.div
+        className="space-y-6"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewport}
+      >
+        <motion.div variants={fadeUpItem}>
           <h3 className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-400">
             Languages
           </h3>
@@ -73,9 +85,9 @@ export function TechStack() {
               <PillItem key={pill.label} {...pill} />
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUpItem}>
           <h3 className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-400">
             Frameworks &amp; libraries
           </h3>
@@ -84,9 +96,9 @@ export function TechStack() {
               <PillItem key={pill.label} {...pill} />
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUpItem}>
           <h3 className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-400">
             Databases &amp; tools
           </h3>
@@ -95,8 +107,8 @@ export function TechStack() {
               <PillItem key={pill.label} {...pill} />
             ))}
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

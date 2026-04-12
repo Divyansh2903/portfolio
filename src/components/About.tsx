@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { fadeUpItem, sectionViewport } from '../lib/motion';
 
 const INTRO =
   "Currently in 3rd Year pursuing BSc from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance and real-world usability. I've worked on production apps, reduced load times significantly, and built systems used in real environments.";
@@ -10,10 +11,10 @@ export function About() {
         About
       </h2>
       <motion.p
-        initial={{ opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.35 }}
+        variants={fadeUpItem}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewport}
         className="max-w-xl text-[17px] leading-[1.55] text-neutral-600"
       >
         {INTRO}

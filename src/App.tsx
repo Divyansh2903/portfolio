@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion';
 import { About } from './components/About';
 import { Experience } from './components/Experience';
 import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
 import { TechStack } from './components/TechStack';
+import { fadeUpItem, sectionViewport } from './lib/motion';
 
 function App() {
   return (
@@ -14,9 +16,15 @@ function App() {
         <Experience />
         <Projects />
 
-        <footer className="border-t border-neutral-200 pt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-400">
+        <motion.footer
+          variants={fadeUpItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewport}
+          className="border-t border-neutral-200 pt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-400"
+        >
           <p>© {new Date().getFullYear()} divyansh singh</p>
-        </footer>
+        </motion.footer>
       </main>
     </div>
   );
