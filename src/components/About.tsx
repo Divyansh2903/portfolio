@@ -1,26 +1,23 @@
-import { SectionHeader } from './SectionHeader';
+import { motion } from 'framer-motion';
+
+const INTRO =
+  "Currently in 3rd Year pursuing BSc from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance and real-world usability. I've worked on production apps, reduced load times significantly, and built systems used in real environments.";
 
 export function About() {
   return (
     <section aria-labelledby="about-heading">
-      <SectionHeader title="About" />
       <h2 id="about-heading" className="sr-only">
         About
       </h2>
-      <div className="max-w-2xl space-y-5 font-mono text-[15px] leading-[1.65] text-neutral-600 lowercase">
-        <p>
-          hey, i&apos;m divyansh. i build full-stack and mobile apps with a focus on performance and how
-          they behave in production—not just on a demo slide.
-        </p>
-        <p>
-          i&apos;ve shipped work that cut real load times (7–8s → 0.6s), migrated stacks to postgres +
-          prisma, and built firebase-backed mobile products end to end. i care about systems, apis, and
-          learning how things work under the hood.
-        </p>
-        <p className="text-neutral-500">
-          bsc computer science, bits pilani (2023–2027).
-        </p>
-      </div>
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.35 }}
+        className="max-w-xl text-[17px] leading-[1.55] text-neutral-600"
+      >
+        {INTRO}
+      </motion.p>
     </section>
   );
 }

@@ -31,7 +31,7 @@ export function Projects() {
       <h2 id="projects-heading" className="sr-only">
         Projects
       </h2>
-      <div className="space-y-14">
+      <div className="space-y-10">
         {projects.map((project) => (
           <article key={project.title} className="max-w-2xl">
             <h3 className="font-mono text-[15px] font-medium lowercase text-foreground">

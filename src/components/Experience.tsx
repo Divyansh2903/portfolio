@@ -40,7 +40,7 @@ export function Experience() {
       <h2 id="experience-heading" className="sr-only">
         Experience
       </h2>
-      <div className="space-y-14">
+      <div className="space-y-10">
         {experiences.map((exp) => (
           <article key={exp.company} className="max-w-2xl">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">

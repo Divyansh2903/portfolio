@@ -4,7 +4,7 @@ type SectionHeaderProps = {
 
 export function SectionHeader({ title }: SectionHeaderProps) {
   return (
-    <div className="mb-8 mt-20 flex items-center gap-4 md:mt-24">
+    <div className="mb-5 flex items-center gap-4">
       <span className="shrink-0 font-mono text-[11px] uppercase tracking-[0.22em] text-neutral-400">
         {title}
       </span>
