@@ -10,18 +10,13 @@ const links = [
 
 export function Hero() {
   return (
-    <header className="pt-6 pb-2 md:pt-10">
-      <p className="mb-8 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-400">
-        <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500" aria-hidden />
-        <span>full-stack &amp; mobile engineer</span>
-      </p>
-
-      <h1 className="font-serif text-[13vw] font-normal leading-[0.95] tracking-tight text-foreground sm:text-[88px] sm:leading-[88px]">
+    <header className="pt-5 pb-2 md:pt-8">
+      <h1 className="font-serif text-[12vw] font-normal leading-[0.95] tracking-tight text-foreground sm:text-[72px] sm:leading-[72px]">
         divyansh singh
       </h1>
 
       <nav
-        className="mt-8 font-mono text-[12px] uppercase tracking-[0.14em] text-foreground"
+        className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground"
         aria-label="Contact links"
       >
         <motion.ul

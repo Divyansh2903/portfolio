@@ -33,7 +33,7 @@ export function Projects() {
       <h2 id="projects-heading" className="sr-only">
         Projects
       </h2>
-      <div className="space-y-10">
+      <div className="space-y-8">
         {projects.map((project) => (
           <motion.article
             key={project.title}
@@ -41,23 +41,23 @@ export function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
             <motion.h3
               variants={fadeUpItem}
-              className="font-mono text-[15px] font-medium lowercase text-foreground"
+              className="font-mono text-[14px] font-medium lowercase text-foreground"
             >
               {project.title}
             </motion.h3>
             <motion.p
               variants={fadeUpItem}
-              className="mt-1 font-mono text-[12px] uppercase tracking-[0.08em] text-neutral-400"
+              className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-neutral-400"
             >
               {project.tech}
             </motion.p>
             <motion.ul
               variants={staggerContainer}
-              className="mt-4 space-y-2 font-mono text-[14px] leading-[1.6] text-neutral-600 lowercase"
+              className="mt-3 space-y-1.5 font-mono text-[13px] leading-[1.58] text-neutral-600 lowercase"
             >
               {project.impact.map((point) => (
                 <motion.li key={point} variants={fadeUpItem}>

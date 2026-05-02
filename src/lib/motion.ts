@@ -1,6 +1,5 @@
 import type { Transition } from 'framer-motion';
 
-/** Parent: only orchestrates stagger timing for children */
 export const staggerContainer = {
   hidden: {},
   visible: {
@@ -8,7 +7,6 @@ export const staggerContainer = {
   },
 } as const;
 
-/** Child: fade + slight rise (matches hero contact links) */
 export const fadeUpItem = {
   hidden: { opacity: 0, y: 6 },
   visible: {
