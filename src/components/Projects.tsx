@@ -1,28 +1,51 @@
-import { motion } from 'framer-motion';
-import { fadeUpItem, sectionViewport, staggerContainer } from '../lib/motion';
+import { ProjectCard, type ProjectCardData } from './ProjectCard';
 import { SectionHeader } from './SectionHeader';
+import configVaultMockup from '../../mockups/ConfigVault_mockup.png';
+import displayPlacerMockup from '../../mockups/displayPlacer_mockups.png';
+import upnextMockup from '../../mockups/upnext_mockup.png';
 
-const projects = [
+const projects: ProjectCardData[] = [
   {
+    id: '01',
+    title: 'UpNext',
+    description:
+      'A real-time collaborative music queue. Hosts spin up a session, participants join via a code, and everyone can search for tracks or add YouTube/Spotify links before voting on what plays next.',
+    tags: ['TYPESCRIPT', 'NEXT.JS', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'WEBSOCKETS', 'EC2'],
+    liveUrl: '#',
+    repoUrl: '#',
+    previewLabel: 'PROJECT SCREENSHOT',
+    previewImage: upnextMockup,
+  },
+  {
+    id: '02',
     title: 'Electricity Billing System',
-    tech: 'React, Node, PostgreSQL, Prisma, Gemini, Razorpay, Web3',
-    impact: [
-      'Full-stack billing platform for campus; migrated from MERN to PostgreSQL + Prisma.',
-      'Gemini Vision for meter readings from photos; Razorpay + crypto payments.',
-    ],
+    description:
+      'Full-stack electricity billing platform for campus-level usage management. Built with the MERN stack first, then migrated to PostgreSQL with Prisma ORM.',
+    tags: ['REACT.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'GEMINI API', 'RAZORPAY', 'WEB3.JS'],
+    liveUrl: '#',
+    repoUrl: '#',
+    previewLabel: 'APP PREVIEW',
+    previewImage: configVaultMockup,
   },
   {
+    id: '03',
     title: 'Encore Medlabs',
-    tech: 'Flutter, Firebase, Cloud Functions',
-    impact: [
-      'Cross-platform app with auth + Firestore; MVC + Provider.',
-      'Vendor app for orders and offers; tuned performance across devices.',
-    ],
+    description:
+      'Cross-platform medical lab booking app with a companion vendor app, built using Flutter and Firebase. Patients book tests and view pricing while vendors manage orders and real-time discounts.',
+    tags: ['FLUTTER', 'FIREBASE', 'CLOUD FUNCTIONS'],
+    liveUrl: '#',
+    repoUrl: '#',
+    previewLabel: 'INTERFACE MOCKUP',
   },
   {
-    title: 'Naya Bharat',
-    tech: 'Flutter, Firebase',
-    impact: ['Offers & partnerships app with real-time Firebase data; shipped production-ready.'],
+    id: '04',
+    title: 'Display Manager',
+    description:
+      'A macOS menu bar app for saving and switching between display configurations with named profiles, visual layout previews, and one-click apply.',
+    tags: ['SWIFT', 'SWIFTUI', 'APPKIT', 'COREGRAPHICS', 'DISPLAYPLACER', 'MACOS'],
+    repoUrl: 'https://github.com/Divyansh2903/displaymanager',
+    previewLabel: 'DISPLAY SETUP PREVIEW',
+    previewImage: displayPlacerMockup,
   },
 ];
 
@@ -33,39 +56,9 @@ export function Projects() {
       <h2 id="projects-heading" className="sr-only">
         Projects
       </h2>
-      <div className="space-y-8">
-        {projects.map((project) => (
-          <motion.article
-            key={project.title}
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            className="max-w-3xl"
-          >
-            <motion.h3
-              variants={fadeUpItem}
-              className="font-mono text-[14px] font-medium lowercase text-foreground"
-            >
-              {project.title}
-            </motion.h3>
-            <motion.p
-              variants={fadeUpItem}
-              className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-neutral-400 dark:text-neutral-500"
-            >
-              {project.tech}
-            </motion.p>
-            <motion.ul
-              variants={staggerContainer}
-              className="mt-3 space-y-1.5 font-mono text-[13px] leading-[1.58] text-neutral-600 lowercase dark:text-neutral-400"
-            >
-              {project.impact.map((point) => (
-                <motion.li key={point} variants={fadeUpItem}>
-                  — {point}
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.article>
+      <div className="border-y border-neutral-200/80 dark:border-neutral-800/95">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </section>
