@@ -42,7 +42,7 @@ function PillItem({ slug, label }: Pill) {
       <motion.span
         whileHover={{ y: -1 }}
         transition={hoverSpring}
-        className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-neutral-700"
+        className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-200"
       >
         <img
           src={simpleIconSrc(slug)}
@@ -61,7 +61,7 @@ function PillItem({ slug, label }: Pill) {
 
 export function About() {
   return (
-    <section aria-labelledby="about-heading">
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-8">
       <SectionHeader title="About" />
       <h2 id="about-heading" className="sr-only">
         About
@@ -76,14 +76,14 @@ export function About() {
       >
         <motion.p
           variants={fadeUpItem}
-          className="max-w-2xl text-[15px] leading-[1.52] text-neutral-600"
+          className="max-w-2xl text-[15px] leading-[1.52] text-neutral-600 dark:text-neutral-400"
         >
           {INTRO}
         </motion.p>
 
         <div className="space-y-5">
           <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400">
+            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
               Languages
             </h3>
             <ul className="flex flex-wrap gap-2">
@@ -94,7 +94,7 @@ export function About() {
           </motion.div>
 
           <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400">
+            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
               Frameworks &amp; libraries
             </h3>
             <ul className="flex flex-wrap gap-2">
@@ -105,7 +105,7 @@ export function About() {
           </motion.div>
 
           <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400">
+            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
               Databases &amp; tools
             </h3>
             <ul className="flex flex-wrap gap-2">
