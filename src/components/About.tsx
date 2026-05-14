@@ -4,7 +4,7 @@ import { simpleIconSrc } from '../lib/simpleIcon';
 import { SectionHeader } from './SectionHeader';
 
 const INTRO =
-  "Currently in 3rd Year pursuing BSc from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance and real-world usability. I've worked on production apps, reduced load times significantly, and built systems used in real environments.";
+  "Currently in my 3rd year pursuing a BSc in Computer Science from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance, scalability, and real-world usability. I've worked on production apps, shipped features, and improved systems used by real users.";
 
 type Pill = { slug: string; label: string };
 

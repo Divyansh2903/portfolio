@@ -19,8 +19,12 @@ export function Hero() {
         divyansh singh
       </h1>
 
+      <p className="mt-4 max-w-xl font-mono text-[11px] leading-relaxed tracking-[0.08em] text-neutral-500 sm:mt-5 dark:text-neutral-400">
+        Full stack and mobile developer
+      </p>
+
       <nav
-        className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground"
+        className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground sm:mt-8"
         aria-label="Contact links and resume"
       >
         <motion.ul

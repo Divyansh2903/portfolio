@@ -11,6 +11,8 @@ export type ProjectCardData = {
   repoUrl?: string;
   previewLabel?: string;
   previewImage?: string;
+  /** Renders a thick rounded “device” bezel when the mockup PNG has no frame baked in */
+  previewDeviceFrame?: boolean;
 };
 
 type ProjectCardProps = {
@@ -29,7 +31,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
-      className="group grid border-t border-neutral-200/80 md:grid-cols-[minmax(0,55%)_minmax(0,45%)] dark:border-neutral-800/95"
+      className="group grid border-t border-neutral-200/80 md:grid-cols-[minmax(0,52%)_minmax(0,48%)] dark:border-neutral-800/95"
     >
       <div className="flex flex-col border-neutral-200/80 py-9 pr-8 md:border-r md:py-10 md:pr-10 dark:border-neutral-800/95">
         <div className="mb-7 flex items-center justify-between gap-4">
@@ -82,16 +84,29 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
       </div>
 
-      <div className="py-7 md:py-8 md:pl-10">
+      <div className="flex items-center py-7 md:py-8 md:pl-10">
         {project.previewImage ? (
-          <div className="aspect-video w-full overflow-hidden border border-neutral-300/80 dark:border-neutral-800/90">
-            <img
-              src={project.previewImage}
-              alt={`${project.title} preview`}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          project.previewDeviceFrame ? (
+            <div className="isolate w-full overflow-hidden rounded-[0.95rem] bg-[#8e8f8f] p-0.5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07),0_6px_22px_rgba(0,0,0,0.16)] md:rounded-[1.05rem] md:p-[3px] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),0_10px_34px_rgba(0,0,0,0.45)]">
+              <div className="aspect-video w-full min-h-0 overflow-hidden rounded-[calc(0.95rem-2px)] md:rounded-[calc(1.05rem-3px)]">
+                <img
+                  src={project.previewImage}
+                  alt={`${project.title} preview`}
+                  className="block h-full w-full object-cover object-center select-none"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video w-full overflow-hidden">
+              <img
+                src={project.previewImage}
+                alt={`${project.title} preview`}
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+          )
         ) : (
           <div className="flex aspect-video w-full items-center justify-center overflow-hidden border border-neutral-300/80 bg-[repeating-linear-gradient(to_bottom,rgba(0,0,0,0.06)_0px,rgba(0,0,0,0.06)_5px,transparent_5px,transparent_10px)] dark:border-neutral-800/90 dark:bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_5px,transparent_5px,transparent_10px)]">
             <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
