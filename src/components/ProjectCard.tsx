@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Globe, Link2 } from 'lucide-react';
+import { Download, Globe, Link2 } from 'lucide-react';
 import { fadeUpItem, sectionViewport } from '../lib/motion';
 
 export type ProjectCardData = {
@@ -8,6 +8,7 @@ export type ProjectCardData = {
   description: string;
   tags: string[];
   liveUrl?: string;
+  downloadUrl?: string;
   repoUrl?: string;
   previewLabel?: string;
   previewImage?: string;
@@ -39,14 +40,22 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {project.id}
           </span>
           <div className="flex items-center gap-4">
-          {project.liveUrl ? (
+          {project.downloadUrl ? (
+            <a
+              href={project.downloadUrl}
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+            >
+              <Download className="size-3" strokeWidth={1.7} aria-hidden />
+              <span>Download</span>
+            </a>
+          ) : project.liveUrl ? (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
             >
-                <Globe className="size-3" strokeWidth={1.7} aria-hidden />
+              <Globe className="size-3" strokeWidth={1.7} aria-hidden />
               <span>Live Link</span>
             </a>
           ) : null}

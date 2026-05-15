@@ -34,8 +34,8 @@ const projects: ProjectCardData[] = [
     description:
       'A real-time collaborative music queue. Hosts spin up a session, participants join via a code, and everyone can search for tracks or add YouTube/Spotify links before voting on what plays next.',
     tags: ['TYPESCRIPT', 'NEXT.JS', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'WEBSOCKETS', 'EC2'],
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://upnext.divyansh.space',
+    repoUrl: 'https://github.com/Divyansh2903/UpNext',
     previewLabel: 'PROJECT SCREENSHOT',
     previewImage: upnextMockup,
     previewDeviceFrame: true,
@@ -46,8 +46,7 @@ const projects: ProjectCardData[] = [
     description:
       'Full-stack electricity billing platform for campus-level usage management. Built with the MERN stack first, then migrated to PostgreSQL with Prisma ORM.',
     tags: ['REACT.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'GEMINI API', 'RAZORPAY', 'WEB3.JS'],
-    liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/Divyansh2903/Billing_System',
     previewLabel: 'APP PREVIEW',
     previewImage: electricityBillingMockup,
     previewDeviceFrame: true,
@@ -58,7 +57,7 @@ const projects: ProjectCardData[] = [
     description:
       'Cross-platform medical lab booking app with a companion vendor app, built using Flutter and Firebase. Patients book tests and view pricing while vendors manage orders and real-time discounts.',
     tags: ['FLUTTER', 'FIREBASE', 'CLOUD FUNCTIONS'],
-    repoUrl: '#',
+    repoUrl: 'https://github.com/Divyansh2903/Encore-Medlabs',
     previewLabel: 'INTERFACE MOCKUP',
     previewImage: encoreMockup,
     previewDeviceFrame: true,
@@ -69,6 +68,8 @@ const projects: ProjectCardData[] = [
     description:
       'A macOS menu bar app for saving and switching between display configurations with named profiles, visual layout previews, and one-click apply.',
     tags: ['SWIFT', 'SWIFTUI', 'APPKIT', 'COREGRAPHICS', 'DISPLAYPLACER', 'MACOS'],
+    downloadUrl:
+      'https://github.com/Divyansh2903/displaymanager/releases/download/v1.1/DisplayManager-v1.1.0.zip',
     repoUrl: 'https://github.com/Divyansh2903/displaymanager',
     previewLabel: 'DISPLAY SETUP PREVIEW',
     previewImage: displayPlacerMockup,
