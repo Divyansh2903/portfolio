@@ -4,14 +4,25 @@ import configVaultMockup from '../../mockups/configvault_mockup.png';
 import encoreMockup from '../../mockups/encore_mockup.png';
 import displayPlacerMockup from '../../mockups/displayPlacer_mockups.png';
 import electricityBillingMockup from '../../mockups/electricity_mockup.png';
+import fensoryMockup from '../../mockups/fensory_mockup.png';
 import upnextMockup from '../../mockups/upnext_mockup.png';
 
 const projects: ProjectCardData[] = [
   {
     id: '01',
+    title: 'Fensory App',
+    description:
+      'Solana-first mobile app where users track portfolios, buy tokens, and invest in on-chain protocols with real-time insights. Built this end-to-end, including the React Native + Expo mobile app and a NestJS backend with PostgreSQL + Prisma and Supabase Auth.',
+    tags: ['REACT NATIVE', 'EXPO', 'NESTJS', 'POSTGRESQL', 'PRISMA', 'SUPABASE AUTH', 'SOLANA'],
+    previewLabel: 'APP PREVIEW',
+    previewImage: fensoryMockup,
+    previewDeviceFrame: true,
+  },
+  {
+    id: '02',
     title: 'ConfigVault',
     description:
-      'Team config vault with environments, access control, and audit logs. Encrypted secrets at rest (AES-256-GCM), multi-project organization, RBAC, time-limited share links, bulk .env import, and cookie-based auth with password reset via Resend.',
+      'Team config vault with environments, access control, and audit logs. Encrypted secrets at rest, multi-project organization, time-limited share links. Built with Next.js frontend and backend with PostgreSQL + Prisma.',
     tags: [
       'TYPESCRIPT',
       'NEXT.JS',
@@ -29,10 +40,10 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '02',
+    id: '03',
     title: 'UpNext',
     description:
-      'A real-time collaborative music queue. Hosts spin up a session, participants join via a code, and everyone can search for tracks or add YouTube/Spotify links before voting on what plays next.',
+      'A real-time collaborative music queue based music streaming platform. Built with Next.js frontend and a express.js backend with PostgreSQL + Prisma, hosted on AWS EC2.',
     tags: ['TYPESCRIPT', 'NEXT.JS', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'WEBSOCKETS', 'EC2'],
     liveUrl: 'https://upnext.divyansh.space',
     repoUrl: 'https://github.com/Divyansh2903/UpNext',
@@ -41,10 +52,10 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '03',
+    id: '04',
     title: 'Electricity Billing System',
     description:
-      'Full-stack electricity billing platform for campus-level usage management. Built with the MERN stack first, then migrated to PostgreSQL with Prisma ORM.',
+      'Full-stack electricity billing platform for campus-level usage management. Built with MERN stack first, then migrated to PostgreSQL with Prisma ORM.',
     tags: ['REACT.JS', 'EXPRESS.JS', 'POSTGRESQL', 'PRISMA', 'GEMINI API', 'RAZORPAY', 'WEB3.JS'],
     repoUrl: 'https://github.com/Divyansh2903/Billing_System',
     previewLabel: 'APP PREVIEW',
@@ -52,7 +63,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '04',
+    id: '05',
     title: 'Encore Medlabs',
     description:
       'Cross-platform medical lab booking app with a companion vendor app, built using Flutter and Firebase. Patients book tests and view pricing while vendors manage orders and real-time discounts.',
@@ -63,7 +74,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '05',
+    id: '06',
     title: 'Display Manager',
     description:
       'A macOS menu bar app for saving and switching between display configurations with named profiles, visual layout previews, and one-click apply.',
