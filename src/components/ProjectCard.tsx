@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import { Download, Globe, Link2 } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { fadeUpItem, sectionViewport } from '../lib/motion';
+
+export type ProjectCategory = 'web' | 'mobile' | 'desktop';
 
 export type ProjectCardData = {
   id: string;
   title: string;
-  description: string;
+  category: ProjectCategory;
+  description: ReactNode;
+  badge?: string;
   tags: string[];
   liveUrl?: string;
   downloadUrl?: string;
@@ -72,6 +77,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ) : null}
           </div>
         </div>
+
+        {project.badge ? (
+          <span className="mb-3 inline-flex w-fit items-center gap-1.5 border border-neutral-300/90 bg-neutral-100/80 px-2.5 py-1 font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-neutral-700 dark:border-neutral-700/90 dark:bg-neutral-800/60 dark:text-neutral-200">
+            <span className="size-1 rounded-full bg-neutral-500 dark:bg-neutral-400" aria-hidden />
+            {project.badge}
+          </span>
+        ) : null}
 
         <h3 className="font-mono text-[clamp(1.9rem,2.8vw,2.45rem)] font-normal leading-[1.12] tracking-[-0.01em] text-neutral-900 dark:text-neutral-100">
           {project.title}
