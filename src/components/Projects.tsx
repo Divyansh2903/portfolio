@@ -30,12 +30,10 @@ const projects: ProjectCardData[] = [
     badge: 'FREELANCE',
     description: (
       <>
-        AI SEO agent for a single YouTube channel owner that scores
-        underperforming videos and rewrites their tags, titles, and
-        descriptions. Built this end-to-end — a React/Vite dashboard and an
-        Express + Prisma/PostgreSQL backend that calls Gemini and Claude, syncs
-        through the YouTube Data and Analytics APIs over OAuth, and runs on Docker
-        Compose behind nginx on a DigitalOcean droplet. Built as freelance work
+        AI SEO agent that scores underperforming videos and rewrites their tags, titles, and
+        descriptions. Built end-to-end including a React/Vite dashboard and an
+        Express + Prisma/PostgreSQL backend, using Gemini and Claude for AI. Runs on Docker
+        Compose behind nginx on a droplet. Built as freelance work
         for the{' '}
         <a
           href="https://www.youtube.com/@MathsJugadSe"
@@ -48,7 +46,7 @@ const projects: ProjectCardData[] = [
         .
       </>
     ),
-    tags: ['TYPESCRIPT', 'REACT', 'EXPRESS', 'POSTGRESQL', 'PRISMA', 'DOCKER', 'YOUTUBE API', 'GEMINI'],
+    tags: ['TYPESCRIPT', 'REACT', 'EXPRESS', 'POSTGRESQL', 'PRISMA', 'DOCKER', 'YOUTUBE API', 'Claude', 'Gemini'],
     previewLabel: 'APP PREVIEW',
     previewImage: seoAgentMockup,
     previewDeviceFrame: true,

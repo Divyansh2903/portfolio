@@ -17,11 +17,12 @@ const experiences: Array<{
     company: 'Fensory',
     role: 'Full Stack Engineering Intern',
     date: 'Apr 2026 – Present',
-    location: 'Remote (Switzerland)',
+    location: 'Remote',
     impact: [
-      'Joined to focus on backend for mobile (Expo / React Native) and web, with work spanning the full stack where needed.',
-      'Building with Expo, React Native, NestJS, Fastify, and Supabase.',
-      'Contributing to a release on the Seeker ecosystem.',
+      'Built the Fensory mobile application using Expo / React Native, developed its backend with NestJS.',
+      'Shipped the Fensory app to the Seeker dApp Store.',
+      '13+ merged PRs to the core backend repository',
+      'Developing the Trading MCP along with the core backend',
     ],
     tech: [
       { slug: 'expo', label: 'EXPO' },
@@ -55,7 +56,7 @@ const experiences: Array<{
     location: 'Remote',
     impact: [
       'Refactored and modernized a legacy codebase.',
-      'Integrated multiple APIs and worked with PM + team to hit milestones.',
+      'Delivered features across 2 client projects, integrating multiple APIs and collaborating with cross-functional teams.',
     ],
     tech: [
       { slug: 'flutter', label: 'FLUTTER' },
@@ -68,8 +69,8 @@ const experiences: Array<{
     date: 'Jun 2022 – Aug 2022',
     location: 'Remote',
     impact: [
-      'Built responsive UI across devices; aligned with App Store guidelines.',
-      'Got the app reviewed, approved, and deployed.',
+      'Built responsive UI across devices',
+      'Aligned the app with App Store Review Guidelines and resolved compliance issues.'
     ],
     tech: [
       { slug: 'apple', label: 'IOS' },
