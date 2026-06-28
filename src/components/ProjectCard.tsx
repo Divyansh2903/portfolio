@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, Globe, Link2 } from 'lucide-react';
+import { Download, Globe, Link2, PlayCircle } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { fadeUpItem, sectionViewport } from '../lib/motion';
 
@@ -13,6 +13,7 @@ export type ProjectCardData = {
   badge?: string;
   tags: string[];
   liveUrl?: string;
+  demoUrl?: string;
   downloadUrl?: string;
   repoUrl?: string;
   previewLabel?: string;
@@ -62,6 +63,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             >
               <Globe className="size-3" strokeWidth={1.7} aria-hidden />
               <span>Live Link</span>
+            </a>
+          ) : null}
+          {project.demoUrl ? (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+            >
+              <PlayCircle className="size-3" strokeWidth={1.7} aria-hidden />
+              <span>Demo</span>
             </a>
           ) : null}
           {project.repoUrl ? (

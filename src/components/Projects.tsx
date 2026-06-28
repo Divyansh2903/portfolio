@@ -19,6 +19,7 @@ const projects: ProjectCardData[] = [
     description:
       'Solana-first mobile app where users track portfolios, buy tokens, and invest in on-chain protocols with real-time insights. Built this end-to-end, including the React Native + Expo mobile app and a NestJS backend with PostgreSQL + Prisma and Supabase Auth.',
     tags: ['REACT NATIVE', 'EXPO', 'NESTJS', 'POSTGRESQL', 'PRISMA', 'SUPABASE AUTH', 'SOLANA'],
+    demoUrl: 'https://drive.google.com/file/d/1jXwZFUiPy0B4qg_mOylIV13ZTFZPra5B/view?usp=sharing',
     previewLabel: 'APP PREVIEW',
     previewImage: fensoryMockup,
     previewDeviceFrame: true,
@@ -47,6 +48,7 @@ const projects: ProjectCardData[] = [
       </>
     ),
     tags: ['TYPESCRIPT', 'REACT', 'EXPRESS', 'POSTGRESQL', 'PRISMA', 'DOCKER', 'YOUTUBE API', 'Claude', 'Gemini'],
+    demoUrl: 'https://www.loom.com/share/24a1dddb826a4efdbfc7df0fa60bfc30',
     previewLabel: 'APP PREVIEW',
     previewImage: seoAgentMockup,
     previewDeviceFrame: true,
