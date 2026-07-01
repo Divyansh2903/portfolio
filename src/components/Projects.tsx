@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ProjectCard, type ProjectCardData, type ProjectCategory } from './ProjectCard';
 import { SectionHeader } from './SectionHeader';
 import { fadeUpItem, sectionViewport } from '../lib/motion';
+import cinebookMockup from '../../mockups/cinebook_mockup.png';
 import configVaultMockup from '../../mockups/configvault_mockup.png';
 import encoreMockup from '../../mockups/encore_mockup.png';
 import displayPlacerMockup from '../../mockups/displayPlacer_mockups.png';
@@ -55,6 +56,19 @@ const projects: ProjectCardData[] = [
   },
   {
     id: '03',
+    title: 'CineBook',
+    category: 'mobile',
+    description:
+      'AI-powered movie booking platform where customers discover films, pick showtimes, reserve seats with live availability, and complete bookings manually or via a chat assistant. Built end-to-end with Flutter mobile app, React admin dashboard, and Fastify API on PostgreSQL with Prisma, websockets for seat sync.',
+    tags: ['TYPESCRIPT', 'FLUTTER', 'REACT', 'FASTIFY', 'POSTGRESQL', 'PRISMA', 'DOCKER', 'WEBSOCKETS'],
+    demoUrl: 'https://drive.google.com/file/d/1-NlygrIkVAzv-cn0zo3DFruVvh3mVf7h/view?usp=sharing',
+    repoUrl: 'https://github.com/Divyansh2903/CINEBOOK',
+    previewLabel: 'APP PREVIEW',
+    previewImage: cinebookMockup,
+    previewDeviceFrame: true,
+  },
+  {
+    id: '04',
     title: 'ConfigVault',
     category: 'web',
     badge: 'HACKATHON',
@@ -77,7 +91,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '04',
+    id: '05',
     title: 'UpNext',
     category: 'web',
     badge: 'PERSONAL',
@@ -91,7 +105,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '05',
+    id: '06',
     title: 'Encore Medlabs',
     category: 'mobile',
     badge: 'FREELANCE',
@@ -104,7 +118,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '06',
+    id: '07',
     title: 'Display Manager',
     category: 'desktop',
     badge: 'PERSONAL',
@@ -119,7 +133,7 @@ const projects: ProjectCardData[] = [
     previewDeviceFrame: true,
   },
   {
-    id: '07',
+    id: '08',
     title: 'Electricity Billing System',
     category: 'web',
     badge: 'LEARNING',
