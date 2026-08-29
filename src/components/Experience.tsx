@@ -15,7 +15,7 @@ const experiences: Array<{
 }> = [
   {
     company: 'Fensory',
-    role: 'Full Stack Engineering Intern',
+    role: 'Full Stack Engineer',
     date: 'Apr 2026 – Present',
     location: 'Remote',
     impact: [
