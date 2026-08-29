@@ -21,8 +21,8 @@ const experiences: Array<{
     impact: [
       'Built the Fensory mobile application using Expo / React Native, developed its backend with NestJS.',
       'Shipped the Fensory app to the Seeker dApp Store.',
-      '13+ merged PRs to the core backend repository',
-      'Developing the Trading MCP along with the core backend',
+      'Owned the development, launch, and ongoing maintenance of Fensory’s trading MCP server.',
+      '31+ merged PRs to the core backend repository'
     ],
     tech: [
       { slug: 'expo', label: 'EXPO' },
