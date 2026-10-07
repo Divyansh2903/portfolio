@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, Globe, Link2, PlayCircle } from 'lucide-react';
+import { ArrowUpRight, Download, Globe, Link2, PlayCircle } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { fadeUpItem, sectionViewport } from '../lib/motion';
 
@@ -27,6 +27,12 @@ type ProjectCardProps = {
   index: number;
 };
 
+const linkClass =
+  'group/link inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-neutral-600 transition-colors hover:text-foreground dark:text-neutral-300 dark:hover:text-white';
+
+const arrowClass =
+  'size-3 -ml-0.5 opacity-60 transition-transform duration-200 group-hover/link:-translate-y-px group-hover/link:translate-x-px group-hover/link:opacity-100';
+
 const PREVIEW_LABELS = ['PROJECT SCREENSHOT', 'APP PREVIEW', 'INTERFACE MOCKUP'] as const;
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
@@ -45,11 +51,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-neutral-400 dark:text-neutral-500">
             {project.id}
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
           {project.downloadUrl ? (
             <a
               href={project.downloadUrl}
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+              className={linkClass}
             >
               <Download className="size-3" strokeWidth={1.7} aria-hidden />
               <span>Download</span>
@@ -59,10 +65,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+              className={linkClass}
             >
               <Globe className="size-3" strokeWidth={1.7} aria-hidden />
               <span>Live Link</span>
+              <ArrowUpRight className={arrowClass} strokeWidth={1.7} aria-hidden />
             </a>
           ) : null}
           {project.demoUrl ? (
@@ -70,10 +77,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.demoUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+              className={linkClass}
             >
               <PlayCircle className="size-3" strokeWidth={1.7} aria-hidden />
               <span>Demo</span>
+              <ArrowUpRight className={arrowClass} strokeWidth={1.7} aria-hidden />
             </a>
           ) : null}
           {project.repoUrl ? (
@@ -81,10 +89,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.repoUrl}
               target="_blank"
               rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-400 transition-colors hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-300"
+              className={linkClass}
             >
-                <Link2 className="size-3" strokeWidth={1.7} aria-hidden />
+              <Link2 className="size-3" strokeWidth={1.7} aria-hidden />
               <span>GitHub</span>
+              <ArrowUpRight className={arrowClass} strokeWidth={1.7} aria-hidden />
             </a>
           ) : null}
           </div>
@@ -97,7 +106,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         ) : null}
 
-        <h3 className="font-mono text-[clamp(1.9rem,2.8vw,2.45rem)] font-normal leading-[1.12] tracking-[-0.01em] text-neutral-900 dark:text-neutral-100">
+        <h3 className="font-serif text-[clamp(2.25rem,3.4vw,2.9rem)] font-normal leading-[1.02] tracking-[-0.01em] text-neutral-900 dark:text-neutral-100">
           {project.title}
         </h3>
 
@@ -125,7 +134,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 <img
                   src={project.previewImage}
                   alt={`${project.title} preview`}
-                  className="block h-full w-full object-cover object-center select-none"
+                  className="block h-full w-full object-cover object-center select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.03]"
                   loading="lazy"
                 />
               </div>
@@ -135,7 +144,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <img
                 src={project.previewImage}
                 alt={`${project.title} preview`}
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.03]"
                 loading="lazy"
               />
             </div>

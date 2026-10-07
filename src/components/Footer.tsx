@@ -125,7 +125,7 @@ export function Footer() {
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
-      className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-neutral-200 pt-6 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-400 dark:border-neutral-800 dark:text-neutral-500"
+      className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-neutral-200 pt-6 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-500 dark:border-neutral-800 dark:text-neutral-400"
     >
       <p className="flex items-center gap-2.5">
         <span>© {new Date().getFullYear()} divyansh singh</span>
