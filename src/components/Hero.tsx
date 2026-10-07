@@ -10,6 +10,8 @@ const links = [
   { label: 'X', href: 'https://x.com/chauhan2903' },
 ] as const;
 
+const CALENDLY_URL = 'https://calendly.com/sdivyansh001/30min';
+
 export function Hero() {
   const [resumeOpen, setResumeOpen] = useState(false);
 
@@ -19,8 +21,11 @@ export function Hero() {
         divyansh singh
       </h1>
 
-      <p className="mt-4 max-w-xl font-mono text-[11px] leading-relaxed tracking-[0.08em] text-neutral-500 sm:mt-5 dark:text-neutral-400">
-        Full stack and mobile developer
+      <p className="mt-4 max-w-xl font-mono text-[12px] leading-relaxed tracking-[0.04em] text-neutral-600 sm:mt-5 sm:text-[13px] dark:text-neutral-400">
+        Full Stack Developer based in India.{' '}
+        <span className="text-neutral-400 dark:text-neutral-500">
+          Eng. @Fensory.
+        </span>
       </p>
 
       <nav
@@ -47,6 +52,18 @@ export function Hero() {
               </motion.a>
             </motion.li>
           ))}
+          <motion.li variants={fadeUpItem}>
+            <motion.a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block border-b border-transparent pb-0.5 transition-colors hover:border-neutral-400 hover:text-neutral-600 dark:hover:border-neutral-500 dark:hover:text-neutral-300"
+              whileHover={{ y: -1 }}
+              transition={hoverSpring}
+            >
+              Book a call
+            </motion.a>
+          </motion.li>
           <motion.li variants={fadeUpItem}>
             <motion.button
               type="button"
