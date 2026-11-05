@@ -3,40 +3,55 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-serif: "Instrument Serif", Georgia, ui-serif, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --color-background: #ffffff;
-  --color-foreground: rgb(10, 10, 10);
-  --color-muted: #737373;
-  --color-border: #e5e5e5;
+  --color-foreground: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-faint: #a3a3a3;
+  --color-border: #e8e8e8;
+}
+
+html.dark {
+  --color-background: #0e0e0e;
+  --color-foreground: #e6e6e6;
+  --color-muted: #9a9a9a;
+  --color-faint: #6b6b6b;
+  --color-border: #262626;
 }
 
 :root {
   background-color: var(--color-background);
   color: var(--color-foreground);
+  color-scheme: light;
 }
 
 html.dark {
-  --color-background: #0a0a0a;
-  --color-foreground: rgb(250, 250, 250);
-  --color-muted: #a3a3a3;
-  --color-border: #262626;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-bottom: 8.25rem;
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background: var(--color-foreground);
   color: var(--color-background);
+}
+
+/* Plain, quiet links. Underline is the only affordance. */
+a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-faint);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 120ms ease, color 120ms ease;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
 }
