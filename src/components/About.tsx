@@ -1,15 +1,14 @@
 import { Section } from './Section';
 
 const INTRO =
-  "Currently in my 3rd year pursuing a BSc in Computer Science from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance, scalability, and real-world usability. I've worked on production apps, shipped features, and improved systems used by real users.";
+  "Third-year CS at BITS Pilani, studying online while working full-time. I build web and mobile apps, usually the whole stack. Lately I've been learning agentic infrastructure and AI.";
 
 const skills: Array<{ label: string; items: string[] }> = [
   { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'Dart', 'C++'] },
-  {
-    label: 'Frameworks',
-    items: ['Flutter', 'React', 'Next.js', 'React Native', 'Expo', 'Node.js', 'Express', 'NestJS', 'Fastify'],
-  },
+  { label: 'Web & mobile', items: ['React', 'Next.js', 'React Native', 'Expo', 'Flutter'] },
+  { label: 'Backend', items: ['Node.js', 'Express', 'NestJS', 'Fastify'] },
   { label: 'Data & tools', items: ['PostgreSQL', 'Prisma', 'Firebase', 'MongoDB', 'Supabase'] },
+  { label: 'Infra', items: ['AWS', 'DigitalOcean', 'Docker'] },
 ];
 
 export function About() {
@@ -17,9 +16,10 @@ export function About() {
     <Section id="about" title="About">
       <p className="text-muted">{INTRO}</p>
 
-      <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[14px]">
+      {/* Phones: label above its list. Wider screens: label column beside the list. */}
+      <dl className="mt-6 flex flex-col gap-2 text-detail sm:grid sm:grid-cols-[auto_1fr] sm:gap-x-6 sm:gap-y-2">
         {skills.map(({ label, items }) => (
-          <div key={label} className="contents">
+          <div key={label} className="sm:contents">
             <dt className="text-faint">{label}</dt>
             <dd className="text-muted">{items.join(', ')}</dd>
           </div>

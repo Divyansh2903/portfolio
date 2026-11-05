@@ -2,6 +2,7 @@ import { Section } from './Section';
 
 const experiences: Array<{
   company: string;
+  formerly?: string;
   url?: string;
   role: string;
   date: string;
@@ -24,7 +25,9 @@ const experiences: Array<{
     tech: ['Expo', 'React Native', 'NestJS', 'Fastify', 'Supabase'],
   },
   {
-    company: 'Sniphat',
+    company: 'GuideUs',
+    formerly: 'Sniphat',
+    url: 'https://www.guideus.in/',
     role: 'Software Development Engineer Intern',
     date: 'Jan 2024 – Oct 2024',
     location: 'Bangalore, India',
@@ -36,6 +39,7 @@ const experiences: Array<{
   },
   {
     company: 'Pixelotech',
+    url: 'https://pixelotech.com/',
     role: 'Software Development Engineer Intern',
     date: 'Aug 2022 – Dec 2022',
     location: 'Remote',
@@ -64,23 +68,26 @@ export function Experience() {
       <ol className="flex flex-col gap-8">
         {experiences.map((exp) => (
           <li key={exp.company}>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <p>
+            {/* Company and date always share the first line. On phones the role moves to its own
+                line underneath, so the date never jumps around. */}
+            <div className="flex items-baseline justify-between gap-x-4">
+              <h3 className="min-w-0 font-normal">
                 <span className="text-foreground">
                   {exp.url ? (
-                    <a href={exp.url} target="_blank" rel="noreferrer">
+                    <a className="hit" href={exp.url} target="_blank" rel="noreferrer">
                       {exp.company}
                     </a>
                   ) : (
                     exp.company
                   )}
                 </span>
-                <span className="text-muted"> · {exp.role}</span>
-              </p>
-              <p className="text-[14px] text-faint tabular-nums">{exp.date}</p>
+                <span className="hidden text-muted sm:inline"> · {exp.role}</span>
+              </h3>
+              <p className="shrink-0 text-detail text-faint tabular-nums">{exp.date}</p>
             </div>
+            <p className="mt-1 text-detail text-muted sm:hidden">{exp.role}</p>
 
-            <ul className="mt-2 flex flex-col gap-1 text-[14px] text-muted">
+            <ul className="mt-2 flex flex-col gap-1 text-detail text-muted">
               {exp.impact.map((point) => (
                 <li key={point} className="flex gap-2">
                   <span aria-hidden className="select-none text-faint">
@@ -91,8 +98,8 @@ export function Experience() {
               ))}
             </ul>
 
-            <p className="mt-2 text-[13px] text-faint">
-              {exp.location} · {exp.tech.join(', ')}
+            <p className="mt-2 text-meta text-faint">
+              {exp.formerly ? `Formerly ${exp.formerly} · ` : null}{exp.location} · {exp.tech.join(', ')}
             </p>
           </li>
         ))}

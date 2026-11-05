@@ -6,9 +6,9 @@ import { Projects } from './components/Projects';
 
 function App() {
   return (
-    <main className="mx-auto max-w-[40rem] px-6 pb-24 pt-16 text-[15px] leading-[1.65] text-foreground sm:px-8 sm:pt-24">
+    <main className="mx-auto max-w-[40rem] px-6 py-8 text-body text-foreground sm:px-8 sm:py-12">
       <Header />
-      <div className="mt-16 flex flex-col gap-16">
+      <div className="mt-12 flex flex-col gap-12 sm:mt-16 sm:gap-16">
         <About />
         <Experience />
         <Projects />

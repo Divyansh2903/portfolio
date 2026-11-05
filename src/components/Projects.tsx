@@ -111,30 +111,24 @@ export function Projects() {
     <Section id="projects" title="Projects">
       <ol className="flex flex-col gap-8">
         {projects.map((project) => {
-          const primary = project.links[0];
           return (
             <li key={project.title}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                <p>
-                  {primary ? (
-                    <a href={primary.href} target="_blank" rel="noreferrer">
-                      {project.title}
-                    </a>
-                  ) : (
-                    project.title
-                  )}
+              {/* Title wraps if it has to; the links never drop to their own line. */}
+              <div className="flex items-baseline justify-between gap-x-4">
+                <h3 className="min-w-0 font-normal">
+                  <span className="text-foreground">{project.title}</span>
                   {project.note ? <span className="text-faint"> · {project.note}</span> : null}
-                </p>
-                <p className="flex gap-x-4 text-[14px]">
+                </h3>
+                <p className="flex shrink-0 gap-x-4 text-detail">
                   {project.links.map(({ label, href }) => (
-                    <a key={label} href={href} target="_blank" rel="noreferrer" className="text-muted">
+                    <a key={label} href={href} target="_blank" rel="noreferrer" className="hit text-muted">
                       {label}
                     </a>
                   ))}
                 </p>
               </div>
-              <p className="mt-1.5 text-[14px] text-muted">{project.description}</p>
-              <p className="mt-2 text-[13px] text-faint">{project.tech.join(', ')}</p>
+              <p className="mt-2 text-detail text-muted">{project.description}</p>
+              <p className="mt-2 text-meta text-faint">{project.tech.join(', ')}</p>
             </li>
           );
         })}
