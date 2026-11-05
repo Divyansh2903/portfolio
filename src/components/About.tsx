@@ -1,121 +1,30 @@
-import { motion } from 'framer-motion';
-import { fadeUpItem, hoverSpring, sectionViewport, staggerContainer } from '../lib/motion';
-import { simpleIconSrc } from '../lib/simpleIcon';
-import { SectionHeader } from './SectionHeader';
+import { Section } from './Section';
 
 const INTRO =
-  "Currently in my 3rd year pursuing a BSc in Computer Science from BITS Pilani (Digital). I build full-stack and mobile applications with a focus on performance, scalability, and real-world usability. I've worked on production apps, shipped features, and improved systems used by real users.";
+  "Third-year CS at BITS Pilani, studying online while working full-time. I build web and mobile apps, usually the whole stack. Lately I've been learning agentic infrastructure and AI.";
 
-type Pill = { slug: string; label: string };
-
-const languagePills: Pill[] = [
-  { slug: 'typescript', label: 'TypeScript' },
-  { slug: 'javascript', label: 'JavaScript' },
-  { slug: 'python', label: 'Python' },
-  { slug: 'dart', label: 'Dart' },
-  { slug: 'cplusplus', label: 'C++' },
+const skills: Array<{ label: string; items: string[] }> = [
+  { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'Dart', 'C++'] },
+  { label: 'Web & mobile', items: ['React', 'Next.js', 'React Native', 'Expo', 'Flutter'] },
+  { label: 'Backend', items: ['Node.js', 'Express', 'NestJS', 'Fastify'] },
+  { label: 'Data & tools', items: ['PostgreSQL', 'Prisma', 'Firebase', 'MongoDB', 'Supabase'] },
+  { label: 'Infra', items: ['AWS', 'DigitalOcean', 'Docker'] },
 ];
-
-const frameworkPills: Pill[] = [
-  { slug: 'flutter', label: 'Flutter' },
-  { slug: 'react', label: 'React' },
-  { slug: 'nextdotjs', label: 'Next.js' },
-  { slug: 'reactnative', label: 'React Native' },
-  { slug: 'expo', label: 'Expo' },
-  { slug: 'nodedotjs', label: 'Node.js' },
-  { slug: 'express', label: 'Express' },
-  { slug: 'nestjs', label: 'NestJS' },
-  { slug: 'fastify', label: 'Fastify' },
-];
-
-const databasePills: Pill[] = [
-  { slug: 'postgresql', label: 'PostgreSQL' },
-  { slug: 'prisma', label: 'Prisma' },
-  { slug: 'firebase', label: 'Firebase' },
-  { slug: 'mongodb', label: 'MongoDB' },
-  { slug: 'supabase', label: 'Supabase' },
-];
-
-function PillItem({ slug, label }: Pill) {
-  return (
-    <li>
-      <motion.span
-        whileHover={{ y: -1 }}
-        transition={hoverSpring}
-        className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-200"
-      >
-        <img
-          src={simpleIconSrc(slug)}
-          alt=""
-          width={12}
-          height={12}
-          className="h-3 w-3 shrink-0"
-          loading="lazy"
-          decoding="async"
-        />
-        {label}
-      </motion.span>
-    </li>
-  );
-}
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="scroll-mt-8">
-      <SectionHeader title="About" />
-      <h2 id="about-heading" className="sr-only">
-        About
-      </h2>
+    <Section id="about" title="About">
+      <p className="text-muted">{INTRO}</p>
 
-      <motion.div
-        className="space-y-8"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewport}
-      >
-        <motion.p
-          variants={fadeUpItem}
-          className="max-w-2xl text-[15px] leading-[1.52] text-neutral-600 dark:text-neutral-400"
-        >
-          {INTRO}
-        </motion.p>
-
-        <div className="space-y-5">
-          <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
-              Languages
-            </h3>
-            <ul className="flex flex-wrap gap-2">
-              {languagePills.map((pill) => (
-                <PillItem key={pill.label} {...pill} />
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
-              Frameworks &amp; libraries
-            </h3>
-            <ul className="flex flex-wrap gap-2">
-              {frameworkPills.map((pill) => (
-                <PillItem key={pill.label} {...pill} />
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div variants={fadeUpItem}>
-            <h3 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-500">
-              Databases &amp; tools
-            </h3>
-            <ul className="flex flex-wrap gap-2">
-              {databasePills.map((pill) => (
-                <PillItem key={pill.label} {...pill} />
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
+      {/* Phones: label above its list. Wider screens: label column beside the list. */}
+      <dl className="mt-6 flex flex-col gap-2 text-detail sm:grid sm:grid-cols-[auto_1fr] sm:gap-x-6 sm:gap-y-2">
+        {skills.map(({ label, items }) => (
+          <div key={label} className="sm:contents">
+            <dt className="text-faint">{label}</dt>
+            <dd className="text-muted">{items.join(', ')}</dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   );
 }

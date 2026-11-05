@@ -1,24 +1,20 @@
 import { About } from './components/About';
 import { Experience } from './components/Experience';
-import { FloatingDock } from './components/FloatingDock';
 import { Footer } from './components/Footer';
-import { Hero } from './components/Hero';
+import { Header } from './components/Header';
 import { Projects } from './components/Projects';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-200 selection:bg-foreground selection:text-background">
-      <main className="mx-auto flex max-w-5xl flex-col gap-10 px-5 pb-32 pt-2 md:gap-12 md:px-8 md:pb-36">
-        <Hero />
+    <main className="mx-auto max-w-[40rem] px-6 py-8 text-body text-foreground sm:px-8 sm:py-12">
+      <Header />
+      <div className="mt-12 flex flex-col gap-12 sm:mt-16 sm:gap-16">
         <About />
         <Experience />
         <Projects />
-
-        <Footer />
-      </main>
-
-      <FloatingDock />
-    </div>
+      </div>
+      <Footer />
+    </main>
   );
 }
 

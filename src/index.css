@@ -2,41 +2,115 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+ * Design system
+ *
+ * Type: three sizes, nothing else.
+ *   text-body   15px / 1.6   names, titles, intro
+ *   text-detail 14px / 1.6   descriptions, bullets, links, dates
+ *   text-meta   13px / 1.5   tech stacks, footer
+ *
+ *   Section label: text-meta, medium, uppercase, 0.08em tracking, muted.
+ *
+ * Colour: foreground > muted > faint, plus border. Nothing hard-coded in components.
+ *   Every text colour passes WCAG AA (4.5:1) on its background in both themes.
+ *
+ * Touch: standalone links use the `hit` utility, which pads the tap area to at
+ * least 32px tall without moving anything on the page.
+ *
+ * Space (Tailwind's 4px grid, only these steps):
+ *   1  = 4px    tight pairs: name + bio, list rows
+ *   2  = 8px    inside an item: heading > body > meta
+ *   4  = 16px   section title > content, inline link groups
+ *   6  = 24px   sub-blocks inside a section, column gutters
+ *   8  = 32px   between items in a list
+ *   12 / 16     between page sections, mobile / desktop (48px / 64px)
+ *   8 / 12      page padding, mobile / desktop, same top and bottom
+ */
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-serif: "Instrument Serif", Georgia, ui-serif, serif;
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.6;
+  --text-detail: 0.875rem;
+  --text-detail--line-height: 1.6;
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.5;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --color-background: #ffffff;
-  --color-foreground: rgb(10, 10, 10);
-  --color-muted: #737373;
-  --color-border: #e5e5e5;
+  --color-foreground: #1a1a1a;
+  --color-muted: #555555; /* 7.5:1 */
+  --color-faint: #737373; /* 4.7:1 */
+  --color-border: #e8e8e8;
+}
+
+html.dark {
+  --color-background: #0e0e0e;
+  --color-foreground: #e6e6e6;
+  --color-muted: #a8a8a8; /* 8.1:1 */
+  --color-faint: #808080; /* 4.9:1 */
+  --color-border: #262626;
 }
 
 :root {
   background-color: var(--color-background);
   color: var(--color-foreground);
+  color-scheme: light;
 }
 
 html.dark {
-  --color-background: #0a0a0a;
-  --color-foreground: rgb(250, 250, 250);
-  --color-muted: #a3a3a3;
-  --color-border: #262626;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-bottom: 8.25rem;
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background: var(--color-foreground);
   color: var(--color-background);
+}
+
+/* Plain, quiet links. Underline is the only affordance. */
+a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-faint);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 120ms ease, color 120ms ease;
+}
+
+/* Only real pointers get hover styles, so taps on phones don't leave links stuck "hovered". */
+@media (hover: hover) {
+  a:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* Touch feedback instead of the grey iOS tap flash. */
+a:active {
+  opacity: 0.6;
+}
+
+/* Bigger tap area for standalone links: 8px of invisible padding on every side, cancelled out by
+   negative margin so layout is unchanged. Keep at least 16px between neighbours so areas don't overlap. */
+@utility hit {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+/* Theme switch: a short, even cross-fade of the whole page. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
+  animation-timing-function: ease-in-out;
 }
